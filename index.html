@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quét để tải ứng dụng Giao Nhanh</title>
-    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,13 +44,33 @@
         // Định nghĩa link tải ứng dụng
         var qrLink = "https://giaonhanhbmt.github.io/linkapp/redirect.html";
 
-        // Tạo mã QR với logo
+        // Kiểm tra ảnh logo có hoạt động không
+        var logoUrl = "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png";
+
+        // Tạo QR Code với logo
         const qrCode = new QRCodeStyling({
             width: 200,
             height: 200,
-            type: "svg",
+            type: "canvas", // Định dạng hỗ trợ logo
             data: qrLink,
-            image: "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png", // Đổi thành logo của bạn
+            image: logoUrl,
             dotsOptions: {
                 color: "#000",
-            
+                type: "rounded"
+            },
+            backgroundOptions: {
+                color: "#fff"
+            },
+            imageOptions: {
+                crossOrigin: "anonymous",
+                margin: 5,
+                imageSize: 0.3 // Tỷ lệ logo trong QR
+            }
+        });
+
+        // Hiển thị QR Code trong div qrcode
+        qrCode.append(document.getElementById("qrcode"));
+    </script>
+
+</body>
+</html>
