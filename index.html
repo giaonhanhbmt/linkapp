@@ -3,29 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quét mã QR để tải ứng dụng</title>
+    <title>Quét để tải ứng dụng Giao Nhanh</title>
     <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.umd.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            background-color: #FFD700; /* Màu vàng toàn trang */
             padding: 20px;
         }
+        .container {
+            background: rgba(255, 255, 255, 0.2); /* Nền trong suốt */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            text-align: center;
+        }
         h1 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
         }
         #qrcode {
-            margin: 20px auto;
             width: 200px;
             height: 200px;
+            margin: auto;
         }
     </style>
 </head>
 <body>
 
-    <h1>Quét mã QR để tải ứng dụng</h1>
-    <div id="qrcode"></div>
+    <div class="container">
+        <h1>Quét để tải ứng dụng Giao Nhanh</h1>
+        <div id="qrcode"></div>
+    </div>
 
     <script>
         // Định nghĩa link tải ứng dụng
@@ -40,20 +53,4 @@
             image: "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png", // Đổi thành logo của bạn
             dotsOptions: {
                 color: "#000",
-                type: "rounded"
-            },
-            backgroundOptions: {
-                color: "#fff"
-            },
-            imageOptions: {
-                crossOrigin: "anonymous",
-                margin: 10
-            }
-        });
-
-        // Hiển thị QR Code trong div qrcode
-        qrCode.append(document.getElementById("qrcode"));
-    </script>
-
-</body>
-</html>
+            
