@@ -28,16 +28,14 @@
     <div id="qrcode"></div>
 
     <script>
-        // Link trung gian nhận diện thiết bị
-        var qrLink = "https://giaonhanhbmt.github.io/redirect.html";
+    var qrLink = "https://giaonhanhbmt.github.io/linkapp/redirect.html"; 
 
-        // Hiển thị mã QR
-        new QRCode(document.getElementById("qrcode"), {
-            text: qrLink,
-            width: 200,
-            height: 200
-        });
-    </script>
+    new QRCode(document.getElementById("qrcode"), {
+        text: qrLink,
+        width: 200,
+        height: 200
+    });
+</script>
 
 </body>
 </html>
