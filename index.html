@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quét mã QR để tải ứng dụng</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #qrcode {
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quét mã QR để tải ứng dụng</h1>
+    <div id="qrcode"></div>
+    <script>
+        var androidLink = "https://play.google.com/store/apps/details?id=com.giaonhanh_VN&hl=vi";
+        var iosLink = "https://apps.apple.com/vn/app/giao-nhanh/id6469593045?l=vi";
+        
+        function getMobileOperatingSystem() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android/i.test(userAgent)) {
+                return "Android";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+            return "Unknown";
+        }
+        
+        var os = getMobileOperatingSystem();
+        var qrLink = os === "Android" ? androidLink : os === "iOS" ? iosLink : "https://example.com";
+        
+        new QRCode(document.getElementById("qrcode"), {
+            text: qrLink,
+            width: 200,
+            height: 200
+        });
+    </script>
+</body>
+</html>
