@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quét mã QR để tải ứng dụng</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,39 +20,38 @@
             width: 200px;
             height: 200px;
         }
-        .instructions {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-        .download-link {
-            display: block;
-            margin-top: 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #007bff;
-            text-decoration: none;
-        }
     </style>
 </head>
 <body>
 
     <h1>Quét mã QR để tải ứng dụng</h1>
     <div id="qrcode"></div>
-    <p class="instructions">Sử dụng camera hoặc ứng dụng quét QR để mở link tải ứng dụng.</p>
-    <a class="download-link" href="https://giaonhanhbmt.github.io/linkapp/redirect.html">
-        Hoặc bấm vào đây để tải ứng dụng
-    </a>
 
     <script>
-        // Định nghĩa link trang chuyển hướng
+        // Định nghĩa link tải ứng dụng
         var qrLink = "https://giaonhanhbmt.github.io/linkapp/redirect.html";
 
-        // Tạo mã QR
-        new QRCode(document.getElementById("qrcode"), {
-            text: qrLink,
+        // Tạo QR Code với logo
+        const qrCode = new QRCodeStyling({
             width: 200,
-            height: 200
+            height: 200,
+            data: qrLink,
+            image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg", // Đổi thành logo của bạn
+            dotsOptions: {
+                color: "#000",
+                type: "rounded"
+            },
+            backgroundOptions: {
+                color: "#fff"
+            },
+            imageOptions: {
+                crossOrigin: "anonymous",
+                margin: 5
+            }
         });
+
+        // Hiển thị QR Code trong div qrcode
+        qrCode.append(document.getElementById("qrcode"));
     </script>
 
 </body>
