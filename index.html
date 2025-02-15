@@ -34,8 +34,7 @@
         }
         
         var os = getMobileOperatingSystem();
-        var qrLink = os === "Android" ? androidLink : os === "iOS" ? iosLink : "https://example.com";
-        
+        var qrLink = os === "Android" ? androidLink : os === "iOS" ? iosLink : androidLink;
         new QRCode(document.getElementById("qrcode"), {
             text: qrLink,
             width: 200,
