@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quét mã QR để tải ứng dụng</title>
-    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
+    <title>Quét mã QR để tải ứng dụng Giao Nhanh</title>
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.umd.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,17 +24,18 @@
 </head>
 <body>
 
-    <h1>Quét mã QR để tải ứng dụng</h1>
+    <h1>Quét mã QR để tải ứng dụng Giao Nhanh</h1>
     <div id="qrcode"></div>
 
     <script>
         // Định nghĩa link tải ứng dụng
         var qrLink = "https://giaonhanhbmt.github.io/linkapp/redirect.html";
 
-        // Tạo QR Code với logo
+        // Tạo mã QR với logo
         const qrCode = new QRCodeStyling({
             width: 200,
             height: 200,
+            type: "svg",
             data: qrLink,
             image: "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png", // Đổi thành logo của bạn
             dotsOptions: {
@@ -46,7 +47,7 @@
             },
             imageOptions: {
                 crossOrigin: "anonymous",
-                margin: 5
+                margin: 10
             }
         });
 
