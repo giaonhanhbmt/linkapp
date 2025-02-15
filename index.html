@@ -20,22 +20,40 @@
             width: 200px;
             height: 200px;
         }
+        .instructions {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .download-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
 
     <h1>Quét mã QR để tải ứng dụng</h1>
     <div id="qrcode"></div>
+    <p class="instructions">Sử dụng camera hoặc ứng dụng quét QR để mở link tải ứng dụng.</p>
+    <a class="download-link" href="https://giaonhanhbmt.github.io/linkapp/redirect.html">
+        Hoặc bấm vào đây để tải ứng dụng
+    </a>
 
     <script>
-    var qrLink = "https://giaonhanhbmt.github.io/linkapp/redirect.html"; 
+        // Định nghĩa link trang chuyển hướng
+        var qrLink = "https://giaonhanhbmt.github.io/linkapp/redirect.html";
 
-    new QRCode(document.getElementById("qrcode"), {
-        text: qrLink,
-        width: 200,
-        height: 200
-    });
-</script>
+        // Tạo mã QR
+        new QRCode(document.getElementById("qrcode"), {
+            text: qrLink,
+            width: 200,
+            height: 200
+        });
+    </script>
 
 </body>
 </html>
