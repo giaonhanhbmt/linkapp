@@ -18,6 +18,7 @@
             border-radius: 15px;
             display: inline-block;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
         }
         h1 {
             font-size: 28px;
@@ -29,6 +30,12 @@
             width: 280px;
             height: 280px;
         }
+        .character-image {
+            width: 150px; /* Điều chỉnh kích thước hình */
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Căn giữa hình ảnh */
+        }
     </style>
 </head>
 <body>
@@ -38,17 +45,20 @@
         <div id="qrcode"></div>
     </div>
 
+    <!-- Thêm hình nhân vật phía dưới -->
+    <img src="https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/nhanvat.png" alt="Nhân vật" class="character-image">
+
     <script>
         // Link tải ứng dụng
         var qrLink = "https://giaonhanhbmt.github.io/linkapp/redirect.html";
 
-        // Tạo mã QR với logo
+        // Tạo QR Code với logo
         const qrCode = new QRCodeStyling({
             width: 280,
             height: 280,
             type: "svg",
             data: qrLink,
-            image: "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png", // Kiểm tra link ảnh trên GitHub
+            image: "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png", // Logo ứng dụng
             dotsOptions: {
                 color: "#000",
                 type: "rounded"
@@ -59,7 +69,7 @@
             imageOptions: {
                 crossOrigin: "anonymous",
                 margin: 10, 
-                imageSize: 0.35, // Kích thước logo bên trong QR code
+                imageSize: 0.35, // Kích thước logo trong QR
                 borderRadius: 10 // Bo góc logo
             }
         });
