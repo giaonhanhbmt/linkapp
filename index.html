@@ -26,15 +26,15 @@
             margin-bottom: 20px;
         }
         #qrcode {
-            margin: auto;
             width: 280px;
             height: 280px;
+            margin: auto;
         }
         .character-image {
-            width: 150px; /* Điều chỉnh kích thước hình */
+            width: 180px; /* Điều chỉnh kích thước hình */
             height: auto;
             display: block;
-            margin: 0 auto; /* Căn giữa hình ảnh */
+            margin: 20px auto 0; /* Căn giữa hình ảnh */
         }
     </style>
 </head>
@@ -52,30 +52,50 @@
         // Link tải ứng dụng
         var qrLink = "https://giaonhanhbmt.github.io/linkapp/redirect.html";
 
-        // Tạo QR Code với logo
-        const qrCode = new QRCodeStyling({
-            width: 280,
-            height: 280,
-            type: "svg",
-            data: qrLink,
-            image: "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png", // Logo ứng dụng
-            dotsOptions: {
-                color: "#000",
-                type: "rounded"
-            },
-            backgroundOptions: {
-                color: "#fff"
-            },
-            imageOptions: {
-                crossOrigin: "anonymous",
-                margin: 10, 
-                imageSize: 0.35, // Kích thước logo trong QR
-                borderRadius: 10 // Bo góc logo
+        // Kiểm tra hình ảnh có tồn tại không
+        function checkImageExists(url, callback) {
+            var img = new Image();
+            img.onload = function() { callback(true); };
+            img.onerror = function() { callback(false); };
+            img.src = url;
+        }
+
+        // Link logo trong QR Code
+        var logoURL = "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png";
+
+        // Kiểm tra nếu logo tồn tại thì tạo QR
+        checkImageExists(logoURL, function(exists) {
+            if (!exists) {
+                console.warn("⚠️ Logo không tồn tại hoặc đường dẫn sai!");
+                logoURL = ""; // Nếu lỗi, bỏ logo
             }
+
+            // Tạo QR Code với logo
+            const qrCode = new QRCodeStyling({
+                width: 280,
+                height: 280,
+                type: "svg",
+                data: qrLink,
+                image: logoURL, // Logo ứng dụng
+                dotsOptions: {
+                    color: "#000",
+                    type: "rounded"
+                },
+                backgroundOptions: {
+                    color: "#fff"
+                },
+                imageOptions: {
+                    crossOrigin: "anonymous",
+                    margin: 8, 
+                    imageSize: 0.3, // Kích thước logo trong QR
+                    borderRadius: 15 // Bo góc logo
+                }
+            });
+
+            // Hiển thị mã QR trên trang
+            qrCode.append(document.getElementById("qrcode"));
         });
 
-        // Hiển thị mã QR trên trang
-        qrCode.append(document.getElementById("qrcode"));
     </script>
 
 </body>
