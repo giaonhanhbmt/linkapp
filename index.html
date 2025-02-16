@@ -7,17 +7,17 @@
     <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
     <style>
         body {
-            background-color: #FFD700; /* Nền màu vàng */
             font-family: Arial, sans-serif;
             text-align: center;
+            background-color: yellow; /* Nền toàn trang màu vàng */
             padding: 20px;
         }
         .container {
-            background: rgba(255, 255, 255, 0.2); /* Form trong suốt */
+            background: rgba(255, 255, 255, 0.8); /* Nền form trong suốt */
             padding: 20px;
             border-radius: 15px;
             display: inline-block;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
         h1 {
             font-size: 26px;
@@ -25,9 +25,15 @@
             margin-bottom: 20px;
         }
         #qrcode {
-            margin: 20px auto;
-            width: 300px;
-            height: 300px;
+            margin: auto;
+            width: 280px;
+            height: 280px;
+        }
+        .logo {
+            width: 60px; /* Tăng kích thước logo */
+            height: 60px;
+            border-radius: 50%; /* Bo góc logo */
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -39,14 +45,15 @@
     </div>
 
     <script>
+        // Định nghĩa link tải ứng dụng
         var qrLink = "https://giaonhanhbmt.github.io/linkapp/redirect.html";
 
-        // Tạo QR Code với logo
+        // Tạo QR Code với logo bo tròn
         const qrCode = new QRCodeStyling({
-            width: 300,  // Tăng kích thước QR lên 300px
-            height: 300,
+            width: 280,
+            height: 280,
             data: qrLink,
-            image: "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png", // Link logo từ GitHub
+            image: "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png", // Link logo
             dotsOptions: {
                 color: "#000",
                 type: "rounded"
@@ -56,8 +63,8 @@
             },
             imageOptions: {
                 crossOrigin: "anonymous",
-                margin: 10,  // Tăng margin để logo to hơn
-                imageSize: 0.3 // Tăng kích thước logo trong QR
+                margin: 10, 
+                imageSize: 0.3 /* Kích thước logo trong QR */
             }
         });
 
