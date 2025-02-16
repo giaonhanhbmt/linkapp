@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quét để tải ứng dụng Giao Nhanh</title>
-    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +20,7 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
         h1 {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: bold;
             margin-bottom: 20px;
         }
@@ -28,12 +28,6 @@
             margin: auto;
             width: 280px;
             height: 280px;
-        }
-        .logo {
-            width: 60px; /* Tăng kích thước logo */
-            height: 60px;
-            border-radius: 50%; /* Bo góc logo */
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -45,15 +39,16 @@
     </div>
 
     <script>
-        // Định nghĩa link tải ứng dụng
+        // Link tải ứng dụng
         var qrLink = "https://giaonhanhbmt.github.io/linkapp/redirect.html";
 
-        // Tạo QR Code với logo bo tròn
+        // Tạo mã QR với logo
         const qrCode = new QRCodeStyling({
             width: 280,
             height: 280,
+            type: "svg",
             data: qrLink,
-            image: "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png", // Link logo
+            image: "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png", // Kiểm tra link ảnh trên GitHub
             dotsOptions: {
                 color: "#000",
                 type: "rounded"
@@ -64,11 +59,12 @@
             imageOptions: {
                 crossOrigin: "anonymous",
                 margin: 10, 
-                imageSize: 0.3 /* Kích thước logo trong QR */
+                imageSize: 0.35, // Kích thước logo bên trong QR code
+                borderRadius: 10 // Bo góc logo
             }
         });
 
-        // Hiển thị QR Code trong div qrcode
+        // Hiển thị mã QR trên trang
         qrCode.append(document.getElementById("qrcode"));
     </script>
 
