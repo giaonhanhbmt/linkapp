@@ -28,8 +28,8 @@
             margin-top: -10px; /* Đẩy chữ lên cao 1cm */
         }
         #qrcode {
-            width: 220px;
-            height: 220px;
+            width: 240px;
+            height: 240px;
             margin: auto;
         }
     </style>
@@ -48,11 +48,11 @@
         // Định nghĩa logo
         var logoUrl = "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png";
 
-        // Tạo QR Code với logo to hơn
+        // Tạo QR Code với kích thước lớn hơn
         const qrCode = new QRCodeStyling({
-            width: 220,
-            height: 220,
-            type: "canvas", // Định dạng hỗ trợ logo
+            width: 240, // Tăng chiều rộng
+            height: 240, // Tăng chiều cao
+            type: "canvas",
             data: qrLink,
             image: logoUrl,
             dotsOptions: {
@@ -65,7 +65,7 @@
             imageOptions: {
                 crossOrigin: "anonymous",
                 margin: 5,
-                imageSize: 0.4 // Tăng kích thước logo trong QR
+                imageSize: 0.45 // Tăng kích thước logo trong QR
             }
         });
 
