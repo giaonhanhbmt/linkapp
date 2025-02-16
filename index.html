@@ -4,33 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quét để tải ứng dụng Giao Nhanh</title>
-    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
     <style>
         body {
+            background-color: #FFD700; /* Nền màu vàng */
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #FFD700; /* Màu vàng toàn trang */
             padding: 20px;
         }
         .container {
-            background: rgba(255, 255, 255, 0.2); /* Nền trong suốt */
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.2); /* Form trong suốt */
+            padding: 20px;
             border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             display: inline-block;
-            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         }
         h1 {
             font-size: 26px;
             font-weight: bold;
-            color: #333;
             margin-bottom: 20px;
-            margin-top: -10px; /* Đẩy chữ lên cao 1cm */
         }
         #qrcode {
-            width: 240px;
-            height: 240px;
-            margin: auto;
+            margin: 20px auto;
+            width: 300px;
+            height: 300px;
         }
     </style>
 </head>
@@ -42,19 +39,14 @@
     </div>
 
     <script>
-        // Định nghĩa link tải ứng dụng
         var qrLink = "https://giaonhanhbmt.github.io/linkapp/redirect.html";
 
-        // Định nghĩa logo
-        var logoUrl = "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png";
-
-        // Tạo QR Code với kích thước lớn hơn
+        // Tạo QR Code với logo
         const qrCode = new QRCodeStyling({
-            width: 240, // Tăng chiều rộng
-            height: 240, // Tăng chiều cao
-            type: "canvas",
+            width: 300,  // Tăng kích thước QR lên 300px
+            height: 300,
             data: qrLink,
-            image: logoUrl,
+            image: "https://raw.githubusercontent.com/giaonhanhbmt/linkapp/main/logo.png", // Link logo từ GitHub
             dotsOptions: {
                 color: "#000",
                 type: "rounded"
@@ -64,8 +56,8 @@
             },
             imageOptions: {
                 crossOrigin: "anonymous",
-                margin: 5,
-                imageSize: 0.45 // Tăng kích thước logo trong QR
+                margin: 10,  // Tăng margin để logo to hơn
+                imageSize: 0.3 // Tăng kích thước logo trong QR
             }
         });
 
